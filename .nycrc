@@ -1,0 +1,22 @@
+{
+  "lines": 100,
+  "statements": 100,
+  "functions": 100,
+  "branches": 100,
+  "require": [
+    "./spec/.config/bootstrap.js",
+    "babel-core/register"
+  ],
+  "exclude": [
+    "spec/**/*.js",
+    "**/_*.js",
+    "**/constants.js",
+    "lib"
+  ],
+  "reporter": [
+    "text",
+    "html",
+    "lcov"
+  ],
+  "all": true
+}

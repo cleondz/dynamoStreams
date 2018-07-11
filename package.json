@@ -1,7 +1,7 @@
 {
-  "name": "@venzee/dynamoDBStreams",
+  "name": "@venzee/dynamoStreams",
   "version": "1.0.0",
-  "description": "Venzee Streaming tools for dynamoDB access",
+  "description": "Venzee Streaming tools for DynamoDB access",
   "main": "index.js",
   "keywords": [
     "AWS",
@@ -20,7 +20,7 @@
     "run-tests": "cross-env LOG_LEVEL=OFF mocha --require ./spec/.config/bootstrap.js --colors --require babel-core/register ./spec/**/*.test.js",
     "run-tdd": "mocha --require ./spec/.config/bootstrap.js --watch --colors --require babel-core/register ./spec/**/*.test.js",
     "push_to_coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "transpile": "npx babel src --out-dir lib",
+    "transpile": "npx babel src --out-dir .",
     "prepublish": "npm run transpile"
   },
   "author": "Venzee, Inc.",
@@ -32,7 +32,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/venzee/venzee-lambda.git"
+    "url": "https://github.com/venzee/dynamoStreams.git"
   },
   "license": "MIT",
   "private": false,

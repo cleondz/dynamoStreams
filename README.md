@@ -4,7 +4,7 @@ NodeJs Stream wrappers around DynamoDB requests.
 
 ## Installation
 
-`npm i -S @venzee/dynamoStreams`
+`npm i -S @venzee/dynamo_streams`
 
 ## Usage
 
@@ -17,7 +17,7 @@ See the documentation for [DynamoDB](https://docs.aws.amazon.com/AWSJavaScriptSD
 
 ```js
 const client = new AWS.DynamoDB.DocumentClient();
-const queryStream = require("@venzee/dynamoStreams/query")(client, params);
+const queryStream = require("@venzee/dynamo_streams/query")(client, params);
 
 queryStream.on("data", doStuffWithData).on("error", handleError);
 ```

@@ -1,6 +1,6 @@
 {
   "name": "@venzee/dynamo_streams",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Venzee Streaming tools for DynamoDB access",
   "main": "index.js",
   "keywords": [
@@ -73,7 +73,7 @@
     "node": ">=6.10.3"
   },
   "lint-staged": {
-    "*.{json,md}": [
+    "*.json": [
       "prettier --write",
       "git add"
     ],

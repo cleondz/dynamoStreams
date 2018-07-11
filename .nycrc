@@ -10,7 +10,8 @@
   "exclude": [
     "spec/**/*.js",
     "coverage",
-    "lib"
+    "src/index.js",
+    "./*.js"
   ],
   "reporter": [
     "text",

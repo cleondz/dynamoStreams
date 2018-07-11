@@ -2,7 +2,7 @@
   "name": "@venzee/dynamoDBStreams",
   "version": "1.0.0",
   "description": "Venzee Streaming tools for dynamoDB access",
-  "main": "dist/index",
+  "main": "index.js",
   "keywords": [
     "AWS",
     "DynamoDB",

@@ -1,4 +1,4 @@
-function createReadStream( client, params, options ){
+function createQueryStream( client, params, options ){
 
   let isReading = false;
   let hasRead   = false;
@@ -59,7 +59,7 @@ function createReadStream( client, params, options ){
 
 }
 
-module.exports = createReadStream;
+module.exports = createQueryStream;
 
 
 function pushInitialItems( items, n ){

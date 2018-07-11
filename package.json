@@ -1,5 +1,6 @@
 {
-  "name": "@venzee/dynamoStreams",
+  "name": "dynamo_streams",
+  "scope": "venzee",
   "version": "1.0.0",
   "description": "Venzee Streaming tools for DynamoDB access",
   "main": "index.js",

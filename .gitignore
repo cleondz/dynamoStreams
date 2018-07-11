@@ -31,11 +31,4 @@ package-lock.json
 *.local*
 
 # Artifacts
-dist
-.serverless
-.webpack
-**/serverless.yml
-lib/**/package.json
-.deploy/**/
-lib/**/webpack.config.js
-tmp/
+lib/

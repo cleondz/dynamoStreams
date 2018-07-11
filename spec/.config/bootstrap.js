@@ -10,4 +10,4 @@ global.sinon
   = require( 'sinon' );
 
 global.resolveUitPath
-  = require( './resolveUitPathWithName' );
+  = require( 'resolve-uit-path' )();

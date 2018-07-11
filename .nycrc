@@ -9,8 +9,7 @@
   ],
   "exclude": [
     "spec/**/*.js",
-    "**/_*.js",
-    "**/constants.js",
+    "coverage",
     "lib"
   ],
   "reporter": [

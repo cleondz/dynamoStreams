@@ -1,3 +1,4 @@
 module.exports = {
-  query: require( './query' )
+  query: require( './query' ),
+  scan: require( './scan' )
 };

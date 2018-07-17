@@ -23,3 +23,7 @@ queryStream
   .on( 'data', doStuffWithData)
   .on( 'error', handleError);
 ```
+
+### ScanStream
+
+Same behavior as a QueryStream, except we are streaming `scan` results, not `query` results.

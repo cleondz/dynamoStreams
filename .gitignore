@@ -32,5 +32,6 @@ package-lock.json
 
 # Artifacts
 *.js
+lib/
 !src/**/*.js
 !spec/**/*.js

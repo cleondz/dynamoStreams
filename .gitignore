@@ -31,7 +31,5 @@ package-lock.json
 *.local*
 
 # Artifacts
-*.js
-lib/
-!src/**/*.js
-!spec/**/*.js
+./*.js
+./lib/

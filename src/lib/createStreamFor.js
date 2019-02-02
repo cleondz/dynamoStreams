@@ -5,6 +5,9 @@ function createStreamFor( funcKey ){
     let isReading = false;
     let hasRead   = false;
     let ExclusiveStartKey;
+    let newLimit =  0;
+    const limit = params.Limit;
+    let itemsCounter = 0;
 
     const rest = [];
 
@@ -29,6 +32,9 @@ function createStreamFor( funcKey ){
         if( ExclusiveStartKey == null ) return setImmediate( this.push.bind( this, null ) );
 
         params            = { ...params, ExclusiveStartKey };
+
+        if ( newLimit ) params.Limit = newLimit;
+
         ExclusiveStartKey = null;
 
       }
@@ -41,7 +47,18 @@ function createStreamFor( funcKey ){
         if( err ) return this.emit( 'error', { error: err, queryParameters: params } );
         if( !( result && result.Items && result.Items.length ) ) return setImmediate( this.push.bind( this, null ) );
 
+        itemsCounter += result.Items.length;
         ExclusiveStartKey = result.LastEvaluatedKey;
+
+        if ( limit ) {
+          
+          if ( limit == itemsCounter )  ExclusiveStartKey = null;
+          
+          if ( limit > itemsCounter ){
+            newLimit = limit - itemsCounter;
+          }
+
+        }
 
         const items  = [ ...result.Items ];
 

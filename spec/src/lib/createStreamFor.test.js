@@ -193,4 +193,61 @@ describe( 'Streams created by the createStreamFor function', ()=>{
 
   } );
 
+  it( 'should return just the items defined by Limit parameter even if exist LastEvaluatedKey', done=>{
+
+    const query = { Limit : 2 };
+
+    const expected = [ { foo: 'foo' }, { bar: 'bar' }];
+
+    const callResults = [
+      { Items: [ expected[ 0 ], expected[ 1 ] ], LastEvaluatedKey: 'someKey' },
+      { Items: [ {} ] }
+    ];
+
+    const client = { query: ( _, next )=>setImmediate( next, null, callResults.shift() ) };
+    const actual = [];
+
+    createStreamBoundToKey( client, query, { highWaterMark: 1 } )
+      .on( 'data', actual.push.bind( actual ) )
+      .on( 'end',()=>{
+
+        expect( actual )
+          .to.deep.equal( expected );
+
+        done();
+
+      } );
+
+  } );
+
+
+  it( 'should return just the items defined by Limit parameter even if first emit doesn\'t reach it ', done=>{ // eslint-disable-line max-len
+
+    const query = { Limit : 4 };
+
+    const expected = [ { foo: 'foo' }, { bar: 'bar' },  { baz: 'baz' }, { ban: 'ban' } ];
+
+    const callResults = [
+      { Items: [ expected[ 0 ], expected[ 1 ], expected[ 2 ] ], LastEvaluatedKey: 'someKey' },
+      { Items: [ expected[ 3 ] ] , LastEvaluatedKey: 'anotherKey'},
+      { Items: [ {} ] , LastEvaluatedKey: 'anotherKey'}
+
+    ];
+
+    const client = { query: ( _, next )=>setImmediate( next, null, callResults.shift() ) };
+    const actual = [];
+
+    createStreamBoundToKey( client, query, { highWaterMark: 1 } )
+      .on( 'data', actual.push.bind( actual ) )
+      .on( 'end',()=>{
+
+        expect( actual )
+          .to.deep.equal( expected );
+
+        done();
+
+      } );
+
+  } );
+
 } );
